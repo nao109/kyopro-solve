@@ -10,24 +10,11 @@ int main(){
   rep(i,ss){
     if(s[i]==t[i]) continue;
     if(s[i]=='@'){
-      if(t[i]=='a') continue;
-      else if(t[i]=='t') continue;
-      else if(t[i]=='c') continue;
-      else if(t[i]=='o') continue;
-      else if(t[i]=='d') continue;
-      else if(t[i]=='e') continue;
-      else if(t[i]=='r') continue;
-      else if(t[i]=='@') continue;
+      if(t[i]=='a'||t[i]=='t'||t[i]=='c'||t[i]=='o'||t[i]=='d'||t[i]=='e'||t[i]=='r'||t[i]=='@') continue;
       else ans=false;
     }
     else if(t[i]=='@'){
-      if(s[i]=='a') continue;
-      else if(s[i]=='t') continue;
-      else if(s[i]=='c') continue;
-      else if(s[i]=='o') continue;
-      else if(s[i]=='d') continue;
-      else if(s[i]=='e') continue;
-      else if(s[i]=='r') continue;
+      if(s[i]=='a'||s[i]=='t'||s[i]=='c'||s[i]=='o'||s[i]=='d'||s[i]=='e'||s[i]=='r') continue;
       else ans=false;
     }
     else ans=false;

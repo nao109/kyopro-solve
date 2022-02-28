@@ -1,0 +1,1 @@
+print("いつも2525\nAtCoderくん")

@@ -12,11 +12,14 @@ int main(){
   vector<ll> a(1000000);
   a[0]=s;
   ll ans=0;
-  rep(i,1000000){
-    if(a[i]==4){
-      ans=i; break;
+  if(s<=2) ans=0;
+  else{
+    rep(i,1000000){
+      if(a[i]==4){
+        ans=i; break;
+      }
+      a[i+1]=collatz(a[i]);
     }
-    a[i+1]=collatz(a[i]);
   }
   cout << ans+4 << endl;
   return 0;

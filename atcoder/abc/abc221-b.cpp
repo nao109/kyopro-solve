@@ -7,12 +7,14 @@ using ll = long long;
 #define pb push_back
 int main(){
   cout << fixed << setprecision(7);
-  string s,t; cin >> s >> t;
-  int ss=s.size();
-  int cnt=0;
+  vector<string> s(1); string t; cin >> s[0] >> t;
+  int ss=s[0].size(); rep(i,ss-1) s.pb(s[0]);
+  rep(i,ss-1) swap(s[i+1][i+1],s[i+1][i+2]);
   rep(i,ss){
-    if(s[i]==t[i]) ++cnt;
+    if(s[i]==t){
+      cout << "Yes\n"; return 0;
+    }
   }
-  else cout << "No\n";
+  cout << "No\n";
   return 0;
 }

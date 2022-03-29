@@ -21,18 +21,14 @@ int main(){
         int cnt=0;
         rep(k,4){
           if(ch[k]-'0'==j) ++cnt;
-          if(s[ch[k]-'0']=='x'){
-            ans=false; break;
-          }
         }
-        if(ans&&cnt==0){
-          ans=false; break;
-        }
+        if(cnt==0){ans=false; break;}
+      }
+      rep(l,4){
+        if(s[ch[l]-'0']=='x'){ans=false; break;}
       }
     }
-    if(ans){
-      cerr<<i<<" "<<ch<<endl; ++num;
-    }
+    if(ans){cerr<<i<<" "<<ch<<endl; ++num;}
   }
   cout << num << endl;
   return 0;

@@ -9,15 +9,23 @@ int main(){
   cout << fixed << setprecision(7);
   int n,m; cin >> n >> m;
   int b[n][m]; rep(i,n)rep(j,m) cin >> b[i][j];
-  bool ans=true;
+
   rep(i,n)rep(j,m){
     if(j<m-1){
       if(b[0][j+1]!=b[0][j]+1){cout << "No\n"; return 0;}
     }
   }
+  
+  int l=b[0][0]%7;
+  if(l==0){cout << "No\n"; return 0;}
+  rep(i,7){
+    if(n==i+1&&l>7-i){cout << "No\n"; return 0;}
+  }
+
   rep(i,n-1){
     if(b[i+1][0]!=b[i][0]+7){cout << "No\n"; return 0;}
   }
+
   cout << "Yes\n";
   return 0;
 }

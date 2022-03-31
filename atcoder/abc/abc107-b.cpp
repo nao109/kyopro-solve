@@ -7,8 +7,10 @@ using ll = long long;
 #define pb push_back
 int main(){
   cout << fixed << setprecision(7);
+  
   int h,w; cin >> h >> w;
-  vector<pair<string,bool>> a(h); rep(i,h) cin >> a[i].fi;
+  vector<pair<string,bool>> a(h,{"",false});
+  rep(i,h) cin >> a[i].fi;
   
   int cnth=0;
   rep(i,h){
@@ -19,7 +21,7 @@ int main(){
   }
   
   int cntw=0;
-  vector<pair<string,bool>> b(w);
+  vector<pair<string,bool>> b(w,{"",false});
   rep(i,w){
     rep(j,h){
       if(a[j].se) b[i].fi.pb(a[j].fi[i]);
@@ -27,7 +29,7 @@ int main(){
   }
   
   rep(i,w){
-    rep(j,h){
+    rep(j,cnth){
       if(b[i].fi[j]=='#'){b[i].se=true; break;}
     }
     if(b[i].se) ++cntw;
@@ -40,6 +42,9 @@ int main(){
     }
   }
   
+  rep(i,cnth) cout << c[i] << endl;
+  
+  //----------------------------------------
   rep(i,h){
     if(a[i].se) cerr << a[i].fi << endl;
   }
@@ -48,6 +53,5 @@ int main(){
     if(b[i].se) cerr << b[i].fi << endl;
   }
   
-  rep(i,cnth) cout << c[i] << endl;
   return 0;
 }

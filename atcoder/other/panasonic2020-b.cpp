@@ -8,6 +8,7 @@ using ll = long long;
 int main(){
   cout << fixed << setprecision(7);
   ll h,w; cin >> h >> w;
-  cout << (h*w+1)/2 << endl;
+  if(h==1||w==1) cout << 1 << endl;
+  else cout << (h*w+1)/2 << endl;
   return 0;
 }

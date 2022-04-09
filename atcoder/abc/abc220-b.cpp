@@ -5,16 +5,20 @@ using ll = long long;
 #define fi first
 #define se second
 #define pb push_back
+ll f(ll a, ll k){
+  ll ak=0,ch=1;
+  while(a>0){
+    ak+=(a%10)*ch;
+    a/=10; ch*=k;
+  }
+  return ak;
+}
 int main(){
   cout << fixed << setprecision(7);
   ll k,a,b; cin >> k >> a >> b;
-  ll a10=0,b10=0,ch=1;
-  rep(i,10){
-    a10+=(a%10)*ch; b10+=(b%10)*ch;
-    a/=10; b/=10;
-    ch*=k;
-  }
-  cerr << a10 << " " << b10 << endl;
-  cout << ll(a10*b10) << endl;
+  ll ak=f(a,k),bk=f(b,k);
+  cerr << ak << " " << bk << endl;
+  ll ans=ak*bk;
+  cout << ans << endl;
   return 0;
 }

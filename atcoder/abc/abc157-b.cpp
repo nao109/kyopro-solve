@@ -2,30 +2,45 @@
 using namespace std;
 using ll = long long;
 #define rep(i,n) for(int i=0; i<(n); ++i)
+#define fi first
+#define se second
+#define pb push_back
 int main(){
   cout << fixed << setprecision(7);
-  int ai[3][3];
-  rep(i,3)rep(j,3){
-    cin >> ai[i][j];
-  }
+  int a[3][3]; rep(i,3)rep(j,3) cin >> a[i][j];
+  int ch[3][3]={};
   int n; cin >> n;
-  vector<int> b(n); rep(i,n) cin >> b[i];
-  bool ab[3][3]={};
-  rep(i,3)rep(j,3){
-    rep(k,n){
-      if(ai[i][j]==b[k]) ab[i][j]=true;
+  rep(i,n){
+    int b; cin >> b;
+    rep(i,3)rep(j,3){
+      if(a[i][j]==b) ch[i][j]=true;
     }
   }
-  bool ans=false;
+
   rep(i,3){
-    if(ab[i][0]&&ab[i][1]&&ab[i][0]){ans=true; break;}
-    else if(ab[0][i]&&ab[1][i]&&ab[2][i]){ans=true; break;}
+    rep(j,3){
+      cerr << ch[i][j];
+      if(j<2) cerr << " ";
+      else cerr << endl;
+    }
   }
-  if(!ans){
-    if(ab[0][0]&&ab[1][1]&&ab[2][2]) ans=true;
-    if(ab[0][2]&&ab[1][1]&&ab[2][0]) ans=true;
+  bool ans;
+  rep(i,3){
+    ans=true;
+    rep(j,3){
+      if(!ch[i][j]){ans=false; break;}
+    }
+    if(ans){cout << "Yes\n"; return 0;}
   }
-  if(ans) cout << "Yes\n";
-  else cout << "No\n";
+  rep(j,3){
+    ans=true;
+    rep(i,3){
+      if(!ch[i][j]){ans=false; break;}
+    }
+    if(ans){cout << "Yes\n"; return 0;}
+  }
+  if(ch[0][0]&&ch[1][1]&&ch[2][2]){cout << "Yes\n"; return 0;}
+  if(ch[0][2]&&ch[1][1]&&ch[2][0]){cout << "Yes\n"; return 0;}
+  cout << "No\n";
   return 0;
 }

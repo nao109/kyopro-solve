@@ -8,7 +8,7 @@ using ll = long long;
 int main(){
   cout << fixed << setprecision(15);
   int n; cin >> n;
-  int ch1=(n+8)/9,ch2=n%9;
+  int ch1=(n+8)/9,ch2=(n-1)%9+1;
   rep(i,ch1) cout << ch2;
   cout << endl;
   return 0;

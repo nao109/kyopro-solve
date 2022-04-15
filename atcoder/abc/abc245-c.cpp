@@ -13,8 +13,7 @@ int main(){
   bool ch[2][n]; ch[0][0]=true; ch[1][0]=true;
   rep(i,n-1){
     if(ch[0][i]){
-      if(abs(a[i+1]-a[i])<=k) ch[0][i+1]=true;
-      else if(abs(b[i+1]-a[i])<=k) ch[1][i+1]=true;
+      if(abs(a[i+1]-a[i])<=k||abs(b[i+1]-a[i])<=k) ch[0][i+1]=true;
     }
     else if(ch[1][i]){
       if(abs(a[i+1]-b[i])<=k||abs(b[i+1]-b[i])<=k) ch[1][i+1]=true;

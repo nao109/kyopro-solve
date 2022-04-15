@@ -9,12 +9,12 @@ int main(){
   cout << fixed << setprecision(15);
   vector<string> s(7),ans(7);
   s[0]="WBWBWWBWBWBWWBWBWWBW"; ans[0]="Do";
-  s[1]="WBWWBWBWBWWBWBWWBWWB"; ans[1]="Re";
-  s[2]="WWBWBWBWWBWBWWBWWBWB"; ans[2]="Mi";
-  s[3]="WBWBWBWWBWBWWBWWBWBW"; ans[3]="Fa";
-  s[4]="WBWBWWBWBWWBWWBWBWWB"; ans[4]="So";
-  s[5]="WBWWBWBWWBWWBWBWWBWB"; ans[5]="La";
-  s[6]="WWBWBWWBWWBWBWWBWBWB"; ans[6]="Si";
+  s[1]="WBWWBWBWBWWBWBWWBWBW"; ans[1]="Re";
+  s[2]="WWBWBWBWWBWBWWBWBWBW"; ans[2]="Mi";
+  s[3]="WBWBWBWWBWBWWBWBWBWW"; ans[3]="Fa";
+  s[4]="WBWBWWBWBWWBWBWBWWBW"; ans[4]="So";
+  s[5]="WBWWBWBWWBWBWBWWBWBW"; ans[5]="La";
+  s[6]="WWBWBWWBWBWBWWBWBWWB"; ans[6]="Si";
   string t; cin >> t;
   rep(i,7){
     if(t==s[i]) cout << ans[i] << endl;

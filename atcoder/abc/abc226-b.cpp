@@ -10,8 +10,8 @@ int main(){
   int n; cin >> n;
   vector<string> s(n,"");
   rep(i,n){
-    int j; cin >> j;
-    rep(i,j){string t; cin >> t; s[i]+=t;}
+    int l; cin >> l;
+    rep(j,l){string t; cin >> t; s[i]+=t;}
   }
   sort(s.begin(),s.end());
   set<string> cnt;

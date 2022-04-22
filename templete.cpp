@@ -5,6 +5,7 @@ using ll = long long;
 #define fi first
 #define se second
 #define pb push_back
+#define all(a) a.begin(),a.end()
 int main(){
   cout << fixed << setprecision(15);
   

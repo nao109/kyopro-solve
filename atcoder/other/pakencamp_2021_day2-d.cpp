@@ -11,11 +11,9 @@ int main(){
   int n,m; cin >> n >> m;
   vector<int> cnt(m,0);
   rep(i,n){
-    int a; cin >> a; ++cnt[a-1];
+    int a; cin >> a; ++cnt.at(a-1);
   }
-  int mi=200000,Ma=0;
-  //rep(i,m) cerr << cnt[i] << endl;
   sort(all(cnt));
-  cout << cnt[0] << " " << cnt[m-1] << endl;
+  cout << cnt.at(0) << " " << cnt.at(m-1) << endl;
   return 0;
 }

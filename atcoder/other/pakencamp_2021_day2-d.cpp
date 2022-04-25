@@ -9,16 +9,17 @@ using ll = long long;
 int main(){
   cout << fixed << setprecision(15);
   int n,m; cin >> n >> m;
-  map<int,int> a;
-  rep(i,m) a[i+1]=0;
+  vector<int> a(m);
+  rep(i,m) a[i]=0;
   rep(i,n){
-    int c; cin >> c; ++a[c];
+    int c; cin >> c; ++a[c-1];
   }
   int mi=3000,Ma=0;
   rep(i,m){
-    if(mi>a[i+1]) mi=a[i+1];
-    if(Ma<a[i+1]) Ma=a[i+1];
+    if(mi>a[i]) mi=a[i];
+    if(Ma<a[i]) Ma=a[i];
   }
+  rep(i,m) cerr << a[i] << endl;
   cout << mi << " " << Ma << endl;
   return 0;
 }

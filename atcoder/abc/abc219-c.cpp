@@ -22,7 +22,8 @@ int main(){
   f(s,x);
   sort(all(s));
   //rep(i,n) cerr << s[i] << endl;
-  rep(i,26) swap(x[i].fi,x[i].se); sort(all(x));
+  rep(i,26) swap(x[i].fi,x[i].se);
+  sort(all(x));
   //rep(i,26) cerr << x[i].fi << " " << x[i].se << endl;
   f(s,x);
   rep(i,n) cout << s[i] << endl;

@@ -15,7 +15,8 @@ bool f(vector<string> &s,vector<pair<char,char>> &x){
 }
 int main(){
   cout << fixed << setprecision(15);
-  vector<pair<char,char>> x(26); rep(i,26){x[i].fi='a'+i; cin >> x[i].se;}
+  vector<pair<char,char>> x(26); rep(i,26){x[i].se='a'+i; cin >> x[i].fi;}
+  sort(all(x));
   int n; cin >> n;
   vector<string> s(n);
   rep(i,n) cin >> s[i];

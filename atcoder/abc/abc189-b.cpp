@@ -8,13 +8,15 @@ using ll = long long;
 #define all(a) a.begin(),a.end()
 int main(){
   cout << fixed << setprecision(15);
-  int n; double x; cin >> n >> x;
-  double alco=0; int ans=-1;
+  int n; ll x; cin >> n >> x;
+  ll alco=0; x*=100;
+  int ans=-1;
   rep(i,n){
-    double v,p; cin >> v >> p;
-    alco+=v*p/100;
+    ll v,p; cin >> v >> p;
+    alco+=v*p;
     if(alco>x){ans=i+1; break;}
   }
+  //cerr << alco << " " << x << endl;
   cout << ans << endl;
   return 0;
 }

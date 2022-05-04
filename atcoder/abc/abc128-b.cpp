@@ -6,19 +6,16 @@ using ll = long long;
 #define se second
 #define pb push_back
 #define all(a) a.begin(),a.end()
+using P = pair<string,int>;
 int main(){
   cout << fixed << setprecision(15);
   int n; cin >> n;
-  vector<int> w(n); rep(i,n) cin >> w[i];
-  int ans=100000;
-  rep(i,n-1){
-    int s1=0,s2=0;
-    rep(j,n){
-      if(j<i+1) s1+=w[j];
-      else s2+=w[j];
-    }
-    ans=min(abs(s1-s2),ans);
+  vector<pair<P,int>> a(n);
+  rep(i,n){
+    cin >> a[i].fi.fi >> a[i].fi.se;
+    a[i].fi.se*=-1; a[i].se=i+1;
   }
-  cout << ans << endl;
+  sort(all(a));
+  rep(i,n) cout << a[i].se << endl;
   return 0;
 }

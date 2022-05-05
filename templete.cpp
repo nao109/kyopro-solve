@@ -6,6 +6,7 @@ using ll = long long;
 #define se second
 #define pb push_back
 #define all(a) a.begin(),a.end()
+#define pi acos(-1)
 int main(){
   cout << fixed << setprecision(15);
   

@@ -8,13 +8,17 @@ using ll = long long;
 #define all(a) a.begin(),a.end()
 int main(){
   cout << fixed << setprecision(15);
-  string s; cin >> s;
-  int n=s.size();
-  int m=1000;
-  rep(i,n-2){
-    int ch=stoi(s.substr(i,3));
-    m=min(abs(753-ch),m);
+  int n,m; cin >> n >> m;
+  vector<int> ch(m,0); int ans=0;
+  rep(i,n){
+    int k; cin >> k;
+    rep(j,k){
+      int a; cin >> a; ++ch[a-1];
+    }
   }
-  cout << m << endl;
+  rep(i,m){
+    if(ch[i]==n) ++ans;
+  }
+  cout << ans << endl;
   return 0;
 }

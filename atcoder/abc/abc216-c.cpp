@@ -9,7 +9,8 @@ using ll = long long;
 #define pi acos(-1)
 int main(){
   cout << fixed << setprecision(15);
-  int n; cin >> n;
+  ll n;
+  cin >> n;
   string s="";
   while(n>0){
     if(n%2==0){n/=2; s+="B";}

@@ -6,6 +6,7 @@ using ll = long long;
 #define all(a) a.begin(),a.end()
 #define pi acos(-1)
 int main(){
+  cout << 99*3 << endl;
   for(int i=1; i<100; ++i) cout << i <<  " ";
   for(int i=1; i<100; ++i) cout << i*100 <<  " ";
   for(int i=1; i<100; ++i) cout << i*10000 <<  " ";

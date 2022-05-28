@@ -5,9 +5,10 @@ using ll = long long;
 #define se second
 #define all(a) a.begin(),a.end()
 int main(){
-  long double a,b;
+  ll a;
+  double b;
   cin >> a >> b;
-  long double ans=floor(a*b);
-  cout << setprecision(20) << ans << endl;
+  ll ans=(a*(ll)(b*100))/100;
+  cout << ans << endl;
   return 0;
 }

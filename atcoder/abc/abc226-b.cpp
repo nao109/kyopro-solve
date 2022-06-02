@@ -1,24 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
 #define fi first
 #define se second
-#define pb push_back
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(15);
-  int n; cin >> n;
-  vector<string> s(n,"");
-  rep(i,n){
-    int l; cin >> l;
-    rep(j,l){string t; cin >> t; s[i]+=t;}
+  int n;
+  cin >> n;
+  set<vector<int>> cnt;
+  for(int i=0; i<n; ++i){
+    int l;
+    cin >> l;
+    vector<int> a(l);
+    for(int j=0; j<l; ++j){
+      cin >> a[i];
+    }
+    cnt.insert(a);
   }
-  sort(s.begin(),s.end());
-  set<string> cnt;
-  rep(i,n){
-    if(!cnt.count(s[i])) cnt.insert(s[i]);
-  }
-  int ans=cnt.size();
-  cout << ans << endl;
+  cout << cnt.size() << endl;
   return 0;
 }

@@ -20,7 +20,7 @@ int main(){
           ++ans;
         }
       }
-      if(longs && s[j][i]=='x') longs=false;
+      if(longs && s[j][i]!='o') longs=false;
     }
   }
   cout << ans << endl;

@@ -7,22 +7,35 @@ using ll = long long;
 int main(){
   int n,k;
   cin >> n >> k;
+  if(k==1){
+    cout << "Yes\n";
+    return 0;
+  }
   vector<int> a(n);
   for(int i=0; i<n; ++i) cin >> a[i];
-  bool flag=false;
-  for(int i=0; i<n-k; ++i){
-    if(a[i]>a[i+k]){
-      swap(a[i],a[i+k]);
-      flag=true;
+
+  vector<vector<int>> ch(k);
+  for(int i=0; i<n; ++i){
+    ch[i%k].push_back(a[i]);
+  }
+  for(int i=0; i<k; ++i){
+    sort(all(ch[i]));
+    for(int j=0; j<(n+k-1)/k; ++j){
+      cerr << ch[i][j] << " ";
+    }
+    cerr << endl;
+  }
+  vector<int> b;
+  for(int i=0; i<(n+k-1)/k; ++i){
+    for(int j=0; j<k; ++j){
+      b.push_back(ch[j][i]);
     }
   }
-  if(n>2*k || k==1) cout << "Yes\n";
-  else{
-    flag=false;
-    for(int i=0; i<n-1; ++i){
-      if(a[i]>a[i+1]) flag=true;
-    }
-    cout << (!flag ? "Yes\n" : "No\n");
+  bool flag=true;
+  for(int i=0; i<n-1; ++i){
+    cerr << b[i] << " ";
+    if(b[i]>b[i+1]) flag=false;
   }
+  cout << (flag ? "Yes\n" : "No\n");
   return 0;
 }

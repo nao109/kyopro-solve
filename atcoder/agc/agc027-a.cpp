@@ -1,19 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
+#define fi first
+#define se second
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(7);
-  int n,x; cin >> n >> x;
-  vector<int> a(n); rep(i,n) cin >> a[i];
-  sort(a.begin(),a.end());
+  ll n,x;
+  cin >> n >> x;
+  vector<ll> a(n);
+  for(int i=0; i<n; ++i) cin >> a[i];
+  sort(all(a));
   int cnt=0;
-  rep(i,n){
-    if(x>=a[i]){
-      x-=a[i]; ++cnt;
+  for(int i=0; i<n; ++i){
+    if(i<n-1){
+      if(x>=a[i]){
+        x-=a[i];
+        ++cnt;
+      }
+      else break;
     }
+    else if(x==a[i]) ++cnt;
   }
-  if(x>0) cout << cnt-1 << endl;
-  else cout << cnt << endl;
+  cout << cnt << endl;
   return 0;
 }

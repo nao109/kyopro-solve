@@ -11,18 +11,18 @@ int main(){
   for(int i=0; i<k; ++i){
     int c;
     cin >> c;
-    a.insert(c);
+    a.insert(c-1);
   }
-  vector<pair<double,double>> x(n);
-  for(int i=0; i<n; ++i) cin >> x[i].fi >> x[i].se;
-  double ma=0;
-  for(int i=0; i<n; ++i){
-    for(int j=i+1; j<n; ++j){
-      if(a.count(i+1)!=a.count(j+1)){
-        ma=max(sqrt((x[i].fi-x[j].fi)*(x[i].fi-x[j].fi)+(x[i].se-x[j].se)*(x[i].se-x[j].se)),ma);
-      }
+  vector<double> x(n),y(n);
+  for(int i=0; i<n; ++i) cin >> x[i] >> y[i];
+  double ans=0;
+  for(int i=0; i<n; ++i){      
+    double mi=LLONG_MAX;
+    for(ll j:a){
+      mi=min(sqrt((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j])),mi);
     }
+    ans=max(mi,ans);
   }
-  cout << fixed << setprecision(15) << ma << endl;
+  cout << fixed << setprecision(15) << ans << endl;
   return 0;
 }

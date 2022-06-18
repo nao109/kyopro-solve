@@ -19,7 +19,7 @@ int main(){
     if(x>=a) cout << x-a << endl;
     else if(a+d*(n-1)>=x) cout << (a+d*(n-1))-x << endl;
     else{
-      ll sub=(x-a)%d;
+      ll sub=(a-x)%d;
       cout << min(sub,d-sub) << endl;
     }
   }

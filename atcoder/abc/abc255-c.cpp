@@ -11,16 +11,16 @@ int main(){
     if(x<=a) cout << a-x << endl;
     else if(a+d*(n-1)<=x) cout << x-(a+d*(n-1)) << endl;
     else{
-      ll sub1=(x-a)/d,sub2=(x-a+d-1)/d;
-      cout << abs(min(x-(a+d*(sub1-1)),(a+d*(sub2-1))-x)) << endl;
+      ll sub=(x-a)%d;
+      cout << min(sub,d-sub) << endl;
     }
   }
   else if(d<0){
     if(x>=a) cout << x-a << endl;
     else if(a+d*(n-1)>=x) cout << (a+d*(n-1))-x << endl;
     else{
-      ll sub1=(x-a)/d,sub2=(x-a+d-1)/d;
-      cout << min((a+d*(sub1-1))-x,x-(a+d*(sub2-1))) << endl;
+      ll sub=(x-a)%d;
+      cout << min(sub,d-sub) << endl;
     }
   }
   else{

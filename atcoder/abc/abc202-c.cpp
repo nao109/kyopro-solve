@@ -1,22 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
 #define fi first
 #define se second
-#define pb push_back
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(7);
-  ll n; cin >> n;
-  vector<int> a(1000000),b(1000000),c(1000000); int cnt=0;
-  rep(i,n) cin >> a[i];
-  rep(i,n) cin >> b[i];
-  rep(i,n) cin >> c[i];
-  rep(i,n){
-    rep(j,n){
-      if(a[i]==b[c[j]-1]) cnt++;
-    }
+  int n;
+  cin >> n;
+  vector<int> a(n),b(n),c(n);
+  for(int i=0; i<n; ++i) cin >> a[i];
+  for(int i=0; i<n; ++i) cin >> b[i];
+  for(int i=0; i<n; ++i) cin >> c[i];
+  map<int,int> ch;
+  for(int i=0; i<n; ++i){
+    if(ch.count(b[c[i]-1])) ++ch[b[c[i]-1]];
+    else ch[b[c[i]-1]]=1;
   }
-  cout << cnt << endl;
+  int ans=0;
+  for(int i=0; i<n; ++i){
+    if(ch.count(a[i])) ans+=ch[a[i]];
+  }
+  cout << ans << endl;
   return 0;
 }

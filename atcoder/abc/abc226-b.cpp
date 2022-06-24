@@ -13,7 +13,7 @@ int main(){
     cin >> l;
     vector<int> a(l);
     for(int j=0; j<l; ++j){
-      cin >> a[i];
+      cin >> a[j];
     }
     cnt.insert(a);
   }

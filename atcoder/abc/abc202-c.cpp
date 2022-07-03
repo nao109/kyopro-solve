@@ -10,9 +10,9 @@ int main(){
   vector<int> a(n),b(n),c(n);
   for(int &i:a) cin >> i;
   for(int &i:b) cin >> i;
-  for(int &i:c){
-    cin >> i;
-    --i;
+  for(int &i:c) cin >> i;
+  for(int i=0; i<n; ++i){
+    --a[i],--b[i],--c[i];
   }
   vector<int> ch(n);
   for(int i=0; i<n; ++i) ++ch[b[c[i]]];

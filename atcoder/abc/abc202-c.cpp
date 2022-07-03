@@ -14,10 +14,10 @@ int main(){
   for(int i=0; i<n; ++i){
     --a[i],--b[i],--c[i];
   }
-  vector<int> ch(n);
-  for(int i=0; i<n; ++i) ++ch[b[c[i]]];
-  int ans=0;
-  for(int i=0; i<n; ++i) ans+=ch[a[i]];
+  vector<int> cnt(n);
+  for(int i=0; i<n; ++i) ++cnt[b[c[i]]];
+  ll ans=0;
+  for(int i=0; i<n; ++i) ans+=cnt[a[i]];
   cout << ans << endl;
   return 0;
 }

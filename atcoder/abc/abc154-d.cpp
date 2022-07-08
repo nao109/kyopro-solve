@@ -20,6 +20,6 @@ int main(){
       ma=max(sum,ma);
     }
   }
-  cout << ma << endl;
+  cout << fixed << setprecision(7) << ma << endl;
   return 0;
 }

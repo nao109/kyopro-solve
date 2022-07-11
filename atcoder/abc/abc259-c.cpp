@@ -22,10 +22,18 @@ int main(){
       if(t[i-1]==t[i]) ++ct.back().se;
       else ct.emplace_back(t[i],1);
     }
+
     if(cs.size()==ct.size()){
       bool flag=true;
       for(int i=0; i<min(cs.size(), ct.size()); ++i){
-        if(cs[i].se>ct[i].se) flag=false;
+        if(cs[i].se>ct[i].se){
+          flag=false;
+          break;
+        }
+        else if(ct[i].se<3 && cs[i].se!=ct[i].se){
+          flag=false;
+          break;
+        }
       }
       if(flag) cout << "Yes\n";
       else cout << "No\n";

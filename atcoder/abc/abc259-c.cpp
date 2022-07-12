@@ -25,14 +25,14 @@ int main(){
 
     if(cs.size()==ct.size()){
       bool flag=true;
-      for(int i=0; i<min(cs.size(), ct.size()); ++i){
-        if(cs[i].se>ct[i].se){
-          flag=false;
-          break;
-        }
-        else if(ct[i].se<3 && cs[i].se!=ct[i].se){
-          flag=false;
-          break;
+      for(int i=0; i<cs.size(); ++i){
+        if(cs[i].fi==ct[i].fi){
+          if(cs[i].se==ct[i].se) continue;
+          else if(cs[i].se>=2 && cs[i].se<ct[i].se) continue;
+          else{
+            flag=false;
+            break;
+          }
         }
       }
       if(flag) cout << "Yes\n";

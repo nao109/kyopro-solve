@@ -29,11 +29,9 @@ int main(){
         if(cs[i].fi==ct[i].fi){
           if(cs[i].se==ct[i].se) continue;
           else if(cs[i].se>=2 && cs[i].se<ct[i].se) continue;
-          else{
-            flag=false;
-            break;
-          }
+          else flag=false;
         }
+        else flag=false;
       }
       if(flag) cout << "Yes\n";
       else cout << "No\n";

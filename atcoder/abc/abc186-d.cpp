@@ -9,7 +9,7 @@ int main(){
   cin >> n;
   vector<ll> a(n);
   for(ll &i:a) cin >> i;
-  sort(all(a),greater<int>());
+  sort(all(a),greater<ll>());
   ll ans=0,sum=0;
   for(int i=1; i<n; ++i) sum+=a[i];
   for(int i=0; i<n-1; ++i){

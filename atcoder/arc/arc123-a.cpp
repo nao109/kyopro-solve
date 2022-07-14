@@ -5,11 +5,14 @@ using ll = long long;
 #define se second
 #define all(a) a.begin(),a.end()
 int main(){
-  ll a,b,c,cnt=0;
+  ll a,b,c;
   cin >> a >> b >> c;
-  c+=((c+a)%2==1);
-  cnt+=((c+a)%2==1);
-  cnt+= (b-(a+c)/2>=0 ? 2 : 1) * abs(b-(a+c)/2);
-  cout << cnt << endl;
+  if(a>c) swap(a,c);
+  ll ans=0;
+  if(2*b!=a+c){
+    if(2*b-a-c<=0) ans=abs(2*b-a-c)/2;
+    else ans=abs(2*b-a-c);
+  }
+  cout << ans << endl;
   return 0;
 }

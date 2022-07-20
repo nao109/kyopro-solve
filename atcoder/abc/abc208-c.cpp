@@ -4,28 +4,31 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(a) a.begin(),a.end()
-#define pi acos(-1)
-using P = pair<ll,ll>;
 int main(){
   ll n,k;
   cin >> n >> k;
-  vector<pair<P,ll>> a(n,{{0,0},k/n});
-  k=k%n;
-  for(ll i=0; i<n; ++i){
-    cin >> a[i].fi.fi;
-    a[i].fi.se=i;
+  vector<ll> a(n),cnt(n,k/n);
+  map<ll,ll> x;
+  for(ll &i:a){
+    cin >> i;
+    x[i]=0;
   }
-  sort(all(a));
-  for(ll i=0; i<n; ++i){
-    a[i].se+=max((ll)0,k);
+
+  ll num=0;
+  for(auto &i:x){
+    i.se=num;
+    num++;
+  }
+
+  k%=n;
+  ll i=0;
+  while(k>0){
+    ++cnt[i];
+    ++i;
     --k;
   }
-  for(ll i=0; i<n; ++i){
-    swap(a[i].fi.fi,a[i].fi.se);
-  }
-  sort(all(a));
-  for(ll i=0; i<n; ++i){
-    cout << a[i].se << endl;
+  for(int i=0; i<n; ++i){
+    cout << cnt[x[a[i]]] << endl;
   }
   return 0;
 }

@@ -7,15 +7,20 @@ using ll = long long;
 int main(){
   int n,m;
   cin >> n >> m;
-  vector<int> cnt(m,0);
-  cerr << cnt.capacity() << endl;
+  map<int,int> cnt;
   for(int i=0; i<n; ++i){
     int a;
     cin >> a;
-    ++cnt[a-1];
+    if(cnt.count(a)) ++cnt[a];
+    else cnt[a]=1;
   }
-  sort(all(cnt));
-  cout << cnt[0] << endl;
-  cout << cnt[m-1] << endl;
+  int mi=n,ma=0;
+  if(cnt.size()<m) mi=0;
+  for(auto &i:cnt){
+    ma=max(i.se,ma);
+    mi=min(i.se,mi);
+  }
+  cout << mi << endl;
+  cout << ma << endl;
   return 0;
 }

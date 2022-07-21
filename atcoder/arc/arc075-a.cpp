@@ -22,6 +22,7 @@ int main(){
       cout << ans << endl;
       return 0;
     }
+    else ans+=i;
   }
   cout << 0 << endl;
   return 0;

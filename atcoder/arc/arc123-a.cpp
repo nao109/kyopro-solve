@@ -9,9 +9,12 @@ int main(){
   cin >> a >> b >> c;
   if(a>c) swap(a,c);
   ll ans=0;
-  if(2*b!=a+c){
-    if(2*b-a-c<=0) ans=abs(2*b-a-c)/2;
-    else ans=abs(2*b-a-c);
+  if(a+c!=2*b){
+    if(2*b>a+c) ans=abs(2*b-a-c);
+    else{
+      ans=(abs(2*b-a-c)+1)/2;
+      if(2*b>a+c) ans+=1;
+    }
   }
   cout << ans << endl;
   return 0;

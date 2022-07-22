@@ -7,13 +7,13 @@ using ll = long long;
 int main(){
   ll a,b,c;
   cin >> a >> b >> c;
-  if(a>c) swap(a,c);
-  ll ans=0;
-  if(a+c!=2*b){
-    if(2*b>a+c) ans=abs(2*b-a-c);
+  ll ans=0,ch=2*b-a-c;
+  if(ch!=0){
+   if(ch>0) ans=ch;
     else{
-      ans=(abs(2*b-a-c)+1)/2;
-      if(2*b>a+c) ans+=1;
+      ans=(abs(ch)+1)/2;
+      ch+=ans*2;
+      ans+=ch;
     }
   }
   cout << ans << endl;

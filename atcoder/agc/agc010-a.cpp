@@ -15,6 +15,11 @@ int main(){
     else ++even;
   }
 
+  if(odd==2 && even==0){
+    cout << "YES\n";
+    return 0;
+  }
+
   odd=odd%2;
   even=min(1,even);
 

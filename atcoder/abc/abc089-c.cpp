@@ -5,10 +5,10 @@ using ll = long long;
 #define se second
 #define all(a) a.begin(),a.end()
 int main(){
-  int n;
+  ll n;
   cin >> n;
-  vector<int> cnt(5,0);
-  for(int i=0; i<n; ++i){
+  vector<ll> cnt(5,0);
+  for(ll i=0; i<n; ++i){
     string s;
     cin >> s;
     if(s[0]=='M') ++cnt[0];

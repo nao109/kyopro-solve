@@ -8,18 +8,18 @@ const int mod = 1000000007;
 int main(){
   int n,m;
   cin >> n >> m;
-  vector<bool> step(n+1,true);
-  for(int i=0; i<n; ++i){
+  set<int> step;
+  for(int i=0; i<m; ++i){
     int a;
     cin >> a;
-    step[a]=false;
+    step.insert(a);
   }
-  vector<int> dp(n+1,0);
-  dp[0]=1,dp[1]=(step[1] ? 1 : 0);
+  vector<ll> dp(n+1,0);
+  dp[0]=1,dp[1]=(step.count(1) ? 0 : 1);
   for(int i=2; i<n+1; ++i){
-    if(step[i]) dp[i]=(dp[i-1]+dp[i-2])%mod;
+    if(!step.count(i)) dp[i]=(dp[i-1]+dp[i-2])%mod;
     else dp[i]=0;
   }
-  cout << dp[n]%mod << endl;
+  cout << dp[n] << endl;
   return 0;
 }

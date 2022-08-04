@@ -7,6 +7,7 @@ using ll = long long;
 int main(){
   int h,w;
   cin >> h >> w;
-  cout << ((h+1)/2)*((w+1)/2) << endl;
+  if(h==1 || w==1) cout << h*w << endl;
+  else cout << ((h+1)/2)*((w+1)/2) << endl;
   return 0;
 }

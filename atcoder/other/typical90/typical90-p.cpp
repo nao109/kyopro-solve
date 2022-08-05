@@ -11,7 +11,7 @@ int main(){
   for(int i=0; i<10000; ++i){
     for(int j=0; j<10000; ++j){
       int bar=n-a*i-b*j;
-      if(bar>0 && bar%c==0) ans=min(i+j+bar/c,ans);
+      if(bar>=0 && bar%c==0) ans=min(i+j+bar/c,ans);
     }
   }
   cout << ans << endl;

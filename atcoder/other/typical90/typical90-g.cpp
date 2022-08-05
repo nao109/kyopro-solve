@@ -17,8 +17,8 @@ int main(){
     cin >> b;
     auto iter=lower_bound(all(a), b);
     auto pos=iter-a.begin();
-    if(pos==0) cout << a[pos]-b << endl;
-    else cout << min(b-a[pos-1],a[pos]-b) << endl;
+    if(pos==0) cout << abs(a[pos]-b) << endl;
+    else cout << min(abs(b-a[pos-1]),abs(a[pos]-b)) << endl;
   }
   return 0;
 }

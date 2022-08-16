@@ -7,8 +7,8 @@ using ll = long long;
 int main(){
   ll n;
   cin >> n;
-  for(ll a=0; a<=38; ++a){
-    for(ll b=0; b<=26; ++b){
+  for(ll a=1; a<=38; ++a){
+    for(ll b=1; b<=26; ++b){
       ll pow3=1,pow5=1;
       for(ll i=0; i<a; ++i) pow3*=3;
       for(ll i=0; i<b; ++i) pow5*=5;

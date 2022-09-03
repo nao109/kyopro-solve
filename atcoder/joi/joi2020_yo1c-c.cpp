@@ -10,10 +10,11 @@ int main(){
   vector<int> a(n);
   for(int &i:a) cin >> i;
   int ans=1,cnt=1;
-  for(int i=0; i<n-1; ++i){
-    if(a[i]<=a[i+1]) ++cnt;
+  for(int i=1; i<n; ++i){
+    if(a[i-1]<=a[i]) ++cnt;
     else ans=max(cnt,ans),cnt=1;
   }
+  ans=max(cnt,ans);
   cout << ans << endl;
   return 0;
 }

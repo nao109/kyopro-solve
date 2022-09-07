@@ -1,20 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
 #define fi first
 #define se second
-#define pb push_back
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(7);
-  int n; cin >> n;
-  vector<int> a({105,135,165,189,195});
-  int cnt=0;
-  rep(i,n){
-    rep(j,5){
-      if(i+1==a[j]) ++cnt;
+  int n,ans=0;
+  cin >> n;
+  for(int i=1; i<=n; i+=2){
+    int cnt=0;
+    for(int j=1; j<=i; ++j){
+      if(i%j==0) ++cnt;
     }
+    if(cnt==8) ++ans;
   }
-  cout << cnt << endl;
+  cout << ans << "\n";
   return 0;
 }

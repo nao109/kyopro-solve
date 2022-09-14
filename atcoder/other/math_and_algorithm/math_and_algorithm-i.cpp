@@ -15,7 +15,7 @@ int main(){
   for(ll i=1; i<=n; ++i){
     for(ll j=0; j<=600001; ++j){
       dp[i][j]=dp[i-1][j];
-      if(j>=a[i]) dp[i][j]=dp[i-1][j-a[i]];
+      if(j>=a[i]) dp[i][j]=(dp[i][j] || dp[i-1][j-a[i]]);
     }
   }
   

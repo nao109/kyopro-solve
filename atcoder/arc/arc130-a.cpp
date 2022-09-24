@@ -11,7 +11,7 @@ int main(){
   map<string,int> cnt;
   cnt[s.substr(1)]=1;
   for(int i=1; i<n; ++i){
-    string t=s.substr(0,i)+s.substr(i+1,n-i-1);
+    string t=s.substr(0,i)+s.substr(i+1);
     if(cnt.count(t)) cnt[t]++;
     else cnt[t]=1;
   }

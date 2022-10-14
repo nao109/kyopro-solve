@@ -21,14 +21,9 @@ int main(){
     if(t.count(g)) t[g]++;
     else t[g]=1;
   }
-  for(auto &i:d) cerr << i.fi << " " << i.se << endl;
-  cerr << endl;
-  for(auto &i:t) cerr << i.fi << " " << i.se << endl;
   bool flag=true;
   for(auto &i:t){
-    if(!d.count(i.fi)) flag=false;
-    else if(d[i.fi]<i.se) flag=false;
-    
+    if(!d.count(i.fi) || d[i.fi]<i.se) flag=false;
   }
   cout << (flag ? "YES\n" : "NO\n");
   return 0;

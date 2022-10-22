@@ -5,13 +5,9 @@ using ll = long long;
 #define se second
 #define all(a) a.begin(),a.end()
 int main(){
-  double a,b,c;
+  ll a,b,c;
   cin >> a >> b >> c;
-  double diff=c-a-b;
-  if(diff<=2) cout << "No\n";
-  else{
-    if(diff>sqrt(a*b)*2) cout << "Yes\n";
-    else cout << "No\n";
-  }
+  if(4*a*b<(c-a-b)*(c-a-b)) cout << "Yes\n";
+  else cout << "No\n";
   return 0;
 }

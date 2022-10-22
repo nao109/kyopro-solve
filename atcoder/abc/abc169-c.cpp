@@ -10,8 +10,7 @@ int main(){
   cin >> a >> b;
   b*=100;
   ll lb=b;
-  ll ans=a*b;
-  ans/=100;
+  ll ans=a*lb/100;
   cout << ans << endl;
   return 0;
 }

@@ -7,7 +7,7 @@ using ll = long long;
 int main(){
   ll a,b,c;
   cin >> a >> b >> c;
-  if(4*a*b<(c-a-b)*(c-a-b)) cout << "Yes\n";
+  if(4*a*b<(c-a-b)*(c-a-b) && c-a-b>0) cout << "Yes\n";
   else cout << "No\n";
   return 0;
 }

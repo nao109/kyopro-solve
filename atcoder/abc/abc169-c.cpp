@@ -8,7 +8,10 @@ int main(){
   ll a;
   double b;
   cin >> a >> b;
-  ll ans=(a*(ll)(b*100))/100;
+  b*=100;
+  ll lb=b;
+  ll ans=a*b;
+  ans/=100;
   cout << ans << endl;
   return 0;
 }

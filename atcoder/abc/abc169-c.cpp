@@ -6,10 +6,9 @@ using ll = long long;
 #define all(a) a.begin(),a.end()
 int main(){
   ll a;
-  double b;
+  string b;
   cin >> a >> b;
-  b*=100;
-  ll lb=b;
+  ll lb=(b[0]-'0')*100+(b[2]-'0')*10+(b[3]-'0');
   ll ans=a*lb/100;
   cout << ans << endl;
   return 0;

@@ -4,25 +4,29 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(a) a.begin(),a.end()
-int main(){
-  int n,k,x;
+int main(void){
+  ll n,k,x;
   cin >> n >> k >> x;
-  vector<int> a(n);
-  for(int &i:a){
-    cin >> i;
-    int ch=min(i/x,k);
-    i-=x*ch;
-    k-=ch;
-  }
+  vector<ll> a(n);
+  for(ll &i:a) cin >> i;
+  sort(all(a),greater<ll>());
   
-  sort(all(a));
-  reverse(all(a));
+  for(int i=0; i<n; ++i){
+    if(k*x<=a[i]){
+      a[i]-=k*x;
+      k=0;
+    }
+    else if(x<=a[i]){
+      k-=a[i]/x;
+      a[i]%=x;
+    }
+  }
+
+  sort(all(a),greater<int>());
+  for(int i=0; i<min(k,n); ++i) a[i]-=x;
   
   int ans=0;
-  for(int &i:a){
-    ans+=(k>0 ? 0 : i);
-    --k;
-  }
+  for(int i=0; i<n; ++i) ans+=max(a[i],0ll);
   cout << ans << endl;
   return 0;
 }

@@ -22,10 +22,10 @@ int main(void){
     }
   }
 
-  sort(all(a),greater<int>());
+  sort(all(a),greater<ll>());
   for(int i=0; i<min(k,n); ++i) a[i]-=x;
   
-  int ans=0;
+  ll ans=0;
   for(int i=0; i<n; ++i) ans+=max(a[i],0ll);
   cout << ans << endl;
   return 0;

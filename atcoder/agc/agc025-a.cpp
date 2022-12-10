@@ -8,7 +8,7 @@ int main(){
   int n;
   cin >> n;
   int mi=46;
-  for(int i=1; i<n/2; ++i){
+  for(int i=1; i<=n/2; ++i){
     int chk=0;
     string a=to_string(i),b=to_string(n-i);
     for(char &i:a) chk+=i-'0';

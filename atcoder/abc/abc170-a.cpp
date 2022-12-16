@@ -1,15 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); i++)
+#define fi first
+#define se second
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(7);
-  rep(i,5){
-    int a; cin >> a;
-    if(a==0){
-      cout << i+1 << endl;
-      break;
-    }
+  for(int i=0; i<5; ++i){
+    int x;
+    cin >> x;
+    if(x==0) cout << i+1 << endl;
   }
   return 0;
 }

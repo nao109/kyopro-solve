@@ -1,19 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
-int sum(int i){
-  int ch=0;
-  while(i>0){
-    ch+=i%10; i/=10;
+#define fi first
+#define se second
+#define all(a) a.begin(),a.end()
+int f(int n){
+  int ans=0;
+  while(n>0){
+    ans+=n%10;
+    n/=10;
   }
-  return ch;
+  return ans;
 }
 int main(){
-  cout << fixed << setprecision(7);
-  int n; cin >> n;
-  int ch=0;
-  if(n%sum(n)==0) cout << "Yes\n";
-  else cout << "No\n";
+  int n;
+  cin >> n;
+  cout << (n%f(n)==0 ? "Yes\n" : "No\n");
   return 0;
 }

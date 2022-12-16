@@ -1,11 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); i++)
+#define fi first
+#define se second
+#define all(a) a.begin(),a.end()
+const int mod = 1000000007;
 int main(){
-  cout << fixed << setprecision(7);
-  vector<int> a(3); rep(i,3) cin >> a[i];
-  sort(a.begin(),a.end());
+  int a[3];
+  cin >> a[0] >> a[1] >> a[2];
+  sort(a,a+3);
   cout << a[2]-a[0] << endl;
   return 0;
 }

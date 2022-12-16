@@ -5,9 +5,9 @@ using ll = long long;
 #define se second
 #define all(a) a.begin(),a.end()
 int main(){
-  ll n,a,b;
-  cin >> n >> a >> b;
-  ll cnt=n/(a+b)*a+min(n%(a+b),a);
-  cout << cnt << endl;
+  int a,b;
+  cin >> a >> b;
+  int diff=b-a;
+  cout << diff*(diff-1)/2-a << endl;
   return 0;
 }

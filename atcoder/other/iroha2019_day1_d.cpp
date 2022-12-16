@@ -7,11 +7,13 @@ using ll = long long;
 int main(){
   int n,taka,aoki;
   cin >> n >> taka >> aoki;
+  cerr << taka << " " << aoki << "\n";
+  vector<int> a(n);
+  for(int &i:a) cin >> i;
+  sort(all(a));
   for(int i=0; i<n; ++i){
-    int a;
-    cin >> a;
-    if(i%2==0) taka+=a;
-    else aoki+=a;
+    if(i%2==0) aoki+=a[i];
+    else taka+=a[i];
   }
   if(taka>aoki) cout << "Takahashi\n";
   else if(taka<aoki) cout << "Aoki\n";

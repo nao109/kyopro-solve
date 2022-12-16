@@ -4,27 +4,26 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(a) a.begin(),a.end()
-#define rep(i,n,m) for(int i=(n); i<(m); ++i)
+#define rep(i,n) for(int i=0; i<(n); ++i)
 const int INF = 1000000000;
 int main(){
   int n;
   cin >> n;
-  vector<pair<int,int>> h(n*4);
-  for(int i=0; i<n*4; ++i){
-    cin >> h[i].fi;
-    h[i].se=i/n;
-    cerr << h[i].se << " ";
-  }
-  sort(all(h));
-  
-  int mi=INF,ma=0,ans=INF;
-  rep(i,0,n*4)rep(j,i+1,n*4)rep(k,j+1,n*4)rep(l,k+1,n*4){
-    if(h[i].se!=h[j].se && h[j].se!=h[k].se && h[k].se!=h[l].se && h[l].se!=h[i].se){
-      ma=max(max(h[i].fi,h[j].fi),max(h[k].fi,h[l].fi));
-      mi=min(min(h[i].fi,h[j].fi),min(h[k].fi,h[l].fi));
+
+  if(n<=30){
+    vector<int> a(n),b(n),c(n),d(n);
+    for(int i=0; i<n; ++i) cin >> a[i];
+    for(int i=0; i<n; ++i) cin >> b[i];
+    for(int i=0; i<n; ++i) cin >> c[i];
+    for(int i=0; i<n; ++i) cin >> d[i];
+    int mi=INF,ma=0,ans=INF;
+    rep(i,n)rep(j,n)rep(k,n)rep(l,n){
+      ma=max(max(a[i],b[j]),max(c[k],d[l]));
+      mi=min(min(a[i],b[j]),min(c[k],d[l]));
       ans=min(ma-mi,ans);
     }
+    cout << ans << endl;
   }
-  cout << ans << endl;
+  
   return 0;
 }

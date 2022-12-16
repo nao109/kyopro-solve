@@ -20,7 +20,7 @@ int main(){
       else cr.emplace_back(c[i],1);
     }
     int n=cr.size();
-    int ans=0;
+    int ans=cr[0].se;
     for(int i=1; i<n; ++i) ans=max(cr[i-1].se+cr[i].se,ans);
     cout << ans << endl;
   }

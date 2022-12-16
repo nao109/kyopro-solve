@@ -7,22 +7,22 @@ using ll = long long;
 int main(){
   int h,w;
   cin >> h >> w;
-  bool cnt=false;
-  int x1,x2,y1,y2;
+  vector<string> s(h);
+  for(int i=0; i<h; ++i) cin >> s[i];
+
   for(int i=0; i<h; ++i){
-    string s; cin >> s;
     for(int j=0; j<w; ++j){
-      if(s[j]=='o'){
-        if(!cnt){
-          x1=i,y1=j;
-          cnt=true;
-        }
-        else{
-          x2=i,y2=j;
+      for(int k=0; k<h; ++k){
+        for(int l=0; l<w; ++l){
+          if(i!=k || j!=l){
+            if(s[i][j]=='o' && s[k][l]=='o'){
+              cout << abs(i-k)+abs(l-j) << endl;
+              return 0;
+            }
+          }
         }
       }
     }
   }
-  cout << abs(x1-x2)+abs(y1-y2) << endl;
   return 0;
 }

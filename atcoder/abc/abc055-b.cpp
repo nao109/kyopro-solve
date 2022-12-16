@@ -1,13 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-const ll a = 1000000007;
-#define rep(i,n) for(int i=0; i<(n); i++)
+#define fi first
+#define se second
+#define all(a) a.begin(),a.end()
+const int mod = 1000000007;
 int main(){
-  cout << fixed << setprecision(7);
-  int n; cin >> n;
-  ll ans=1;
-  rep(i,n) ans=(ans*(i+1))%a;
-  cout << ans << "\n";
+  ll n;
+  cin >> n;
+  int p=1;
+  for(ll i=1; i<=n; ++i) p=(p*i)%mod;
+  cout << p << endl;
   return 0;
 }

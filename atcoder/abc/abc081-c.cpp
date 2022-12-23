@@ -1,27 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
 #define fi first
 #define se second
-#define pb push_back
 #define all(a) a.begin(),a.end()
-#define pi acos(-1)
 int main(){
-  cout << fixed << setprecision(15);
-  int n,k; cin >> n >> k;
-  map<int,int> a;
-  rep(i,n){
-    int c; cin >> c;
-    if(a.count(c)) ++a[c];
-    else a[c]=1;
+  int n,k;
+  cin >> n >> k;
+  map<int,int> c;
+  for(int i=0; i<n; ++i){
+    int a;
+    cin >> a;
+    if(c.count(a)) c[a]++;
+    else c[a]=1;
   }
-  priority_queue<int,vector<int>,greater<int>> c;
-  for(auto i:a){int ch=i.se; c.push(ch);}
+
+  vector<int> num;
+  for(auto i:c) num.push_back(i.se);
+  sort(all(num));
+  int d=num.size()-k;
   int ans=0;
-  while(c.size()>k){
-    ans+=c.top(); c.pop();
-  }
+  for(int i=0; i<d; ++i) ans+=num[i];
   cout << ans << endl;
   return 0;
 }

@@ -17,7 +17,7 @@ int main(){
   vector<int> r=p;
   sort(all(r), greater<int>());
   for(int i=0; i<n; ++i){
-    if(p[i]+300>=r[k]) cout << "Yes\n";
+    if(p[i]+300>=r[k-1]) cout << "Yes\n";
     else cout << "No\n";
   }
   return 0;

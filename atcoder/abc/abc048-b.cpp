@@ -1,14 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
 #define fi first
 #define se second
-#define pb push_back
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(15);
-  ll a,b,x; cin >> a >> b >> x;
-  ll ans=b/x-(a-1)/x;
+  ll a,b,x;
+  cin >> a >> b >> x;
+  ll ans=b/x;
+  if(a>0) ans-=(a-1)/x;
+  else ans++;
   cout << ans << endl;
   return 0;
 }

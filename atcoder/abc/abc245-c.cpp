@@ -1,29 +1,30 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
 #define fi first
 #define se second
-#define pb push_back
+#define all(a) a.begin(),a.end()
 int main(){
-  cout << fixed << setprecision(15);
-  int n,k; cin >> n >> k;
+  int n,k;
+  cin >> n >> k;
   vector<int> a(n),b(n);
-  rep(i,n) cin >> a[i]; rep(i,n) cin >> b[i];
-  bool ch[2][n]; ch[0][0]=true; ch[1][0]=true;
-  rep(i,n-1){
-    ch[0][i+1]=false; ch[1][i+1]=false;
-    if(ch[0][i]){
-      if(abs(a[i+1]-a[i])<=k) ch[0][i+1]=true;
-      if(abs(b[i+1]-a[i])<=k) ch[1][i+1]=true;
+  for(int i=0; i<n; ++i) cin >> a[i];
+  for(int i=0; i<n; ++i) cin >> b[i];
+
+  vector<bool> s(n),t(n);
+  s[0]=true, t[0]=true;
+  for(int i=1; i<n; ++i){
+    if(s[i-1]){
+      if(abs(a[i-1]-a[i])<=k) s[i]=true;
+      if(abs(a[i-1]-b[i])<=k) t[i]=true;
     }
-    if(ch[1][i]){
-      if(abs(a[i+1]-b[i])<=k) ch[0][i+1]=true;
-      if(abs(b[i+1]-b[i])<=k) ch[1][i+1]=true;
+    if(t[i-1]){
+      if(abs(b[i-1]-a[i])<=k) s[i]=true;
+      if(abs(b[i-1]-b[i])<=k) t[i]=true;
     }
-    cerr << ch[0][i+1] << " " << ch[1][i+1] << endl;
   }
-  if(ch[0][n-1]||ch[1][n-1]) cout << "Yes\n";
+
+  if(s[n-1] || t[n-1]) cout << "Yes\n";
   else cout << "No\n";
   return 0;
 }

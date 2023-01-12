@@ -1,4 +1,4 @@
-	#include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
 #define fi first
@@ -12,6 +12,11 @@ int main(){
   for(int i=0; i<n; ++i) cin >> t[i];
   vector<int> ans(n,-1);
   ans[0]=t[0];
+  for(int i=1; i<n; ++i){
+    ans[i]=min(t[i], ans[i-1]+s[i-1]);
+  }
+
+  ans[0]=min(ans[0], ans[n-1]+s[n-1]);
   for(int i=1; i<n; ++i){
     ans[i]=min(t[i], ans[i-1]+s[i-1]);
   }

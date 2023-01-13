@@ -4,29 +4,39 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(a) a.begin(),a.end()
+
+ll f(ll n,ll p){
+  if(n==0) return 0;
+  n/=p;
+  return n+f(n,p);
+}
+
 int main(){
   ll k;
   cin >> k;
+  vector<pair<ll,ll>> prime;
 
-  ll cnt=0;
-  for(ll i=2; i*i<=k; ++i){
-    if(k%i==0) cnt++;
+  //素因数分解
+  ll x=k;
+  for(int i=2; i*i<=x; ++i){
+    int cnt=0;
+    while(x%i==0) x/=i, cnt++;
+    prime.emplace_back(i,cnt);
   }
-  if(cnt==0){
-    cout << k << endl;
-    return 0;
-  }
+  if(x!=1) prime.emplace_back(x,1);
 
-  ll ans=-1, i=1;
-  while(k>1){
-    k/=gcd(k,i);
-    if(k==1){
-      ans=i;
-      break;
+  //二分探索 [l,r)
+  ll l=0,r=k;
+  while(r-l>1){
+    ll m=l+(r-l)/2;
+    bool flag=true;
+    for(auto [p,cnt]:prime){
+      if(f(m,p)<cnt) flag=false;
     }
-    i++;
+    if(flag) r=m;
+    else l=m;
   }
-  
-  cout << ans << endl;
+
+  cout << r << endl;
   return 0;
 }

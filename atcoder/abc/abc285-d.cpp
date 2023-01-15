@@ -4,27 +4,43 @@ using ll = long long;
 #define fi first
 #define se second
 #define all(a) a.begin(),a.end()
+
+bool dfs(string v, map<string,vector<string>> &g, map<string,bool> &seen, map<string,bool> &finished){
+  bool ret=true;
+  seen[v]=true;
+  for(auto v2: g[v]){
+    if(seen[v2]){
+      if(!finished[v2]){
+        return false;
+      }
+      continue;
+    }
+    ret &= dfs(v2,g,seen,finished);
+  }
+  finished[v]=true;
+  return ret;
+}
+
 int main(){
   int n;
   cin >> n;
-  
-  map<string,set<string>> st;
+  vector<string> v;
+  map<string,vector<string>> g;
   for(int i=0; i<n; ++i){
     string s,t;
     cin >> s >> t;
-    st[s].insert(t);
+    v.push_back(s);
+    v.push_back(t);
+    g[s].push_back(t);
   }
   
-  map<string,pair<int,int>> dev;
-  for(auto [s,p]:st){
-    dev[s].se++;
-    for(auto j:p) dev[j].fi++;
+  map<string,bool> seen, finished;
+  for(auto i:v){
+    if(!dfs(i,g,seen,finished)){
+      cout << "No\n";
+      return 0;
+    }
   }
-  
-  bool flag=false;
-  for(auto [s,p]:dev){
-    if(p.fi==0 || p.se==0) flag=true;
-  }
-  cout << (flag ? "Yes\n" : "No\n");
+  cout << "Yes\n";
   return 0;
 }

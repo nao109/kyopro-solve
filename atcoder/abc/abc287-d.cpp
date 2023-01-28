@@ -9,16 +9,16 @@ int main(){
     int ss = s.size();
     int ts = t.size();
 
-    int cnt = 0;
+    int ok = 0;
     for(int i = 0; i < ts; ++i){
-        if(s[ss - ts + i] == '?' || t[i] == '?' || s[ss - ts + i] == t[i]) cnt++;
+        if(s[ss - ts + i] == '?' || t[i] == '?' || s[ss - ts + i] == t[i]) ok++;
     }
-    cout << (cnt == ts ? "Yes\n" : "No\n");
+    cout << (ok == ts ? "Yes\n" : "No\n");
 
     for(int i = 0; i < ts; ++i){
-        cnt--;
-        if(s[i] == '?' || t[i] == '?' || s[i] == t[i]) cnt++;
-        cout << (cnt == ts ? "Yes\n" : "No\n");
+        if(s[ss - ts + i] == '?' || t[i] == '?' || s[ss - ts + i] == t[i]) ok--;
+        if(s[i] == '?' || t[i] == '?' || s[i] == t[i]) ok++;
+        cout << (ok == ts ? "Yes\n" : "No\n");
     }
     return 0;
 }

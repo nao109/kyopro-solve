@@ -1,24 +1,26 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
 #define fi first
 #define se second
-#define all(a) a.begin(),a.end()
 const ll mod = 1000000007;
 int main(){
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for(int &i:a){
-    cin >> i;
-    i%=mod;
-  }
-  reverse(all(a));
-  ll sum=0,ans=0;
-  for(int i=0; i<n-1; ++i){
-    sum+=a[i];
-    ans=(ans + (sum * a[i+1]) % mod) % mod;
-  }
-  cout << ans << endl;
-  return 0;
+    ll n;
+    cin >> n;
+    vector<ll> a(n + 1);
+    for(int i = 1; i <= n; ++i){
+        cin >> a[i];
+    }
+
+    vector<ll> s(n + 1);
+    for(int i = 1; i <= n; ++i){
+        s[i] = s[i - 1] + a[i];
+    }
+
+    ll ans = 0;
+    for(int i = 1; i <= n; ++i){
+        ans = (ans + a[i] * (s[n] - s[i])) % mod;
+    }
+    cout << ans << endl;
+    return 0;
 }

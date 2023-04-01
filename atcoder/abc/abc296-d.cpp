@@ -6,18 +6,11 @@ using ll = long long;
 int main(){
     ll n, m;
     cin >> n >> m;
-    if(m < n) cout << m << endl;
-    else if(n * n < m) cout << -1 << endl;
-    else{
-        for(ll i = 0; i <= n; ++i){
-            for(ll j = 2; j * j <= m + i; ++j){
-                if((m + i) % j == 0 && (m + i) / j <= n){
-                    cout << m + i << endl;
-                    return 0;
-                }
-            }
-        }
-        cout << -1 << endl;
+    ll ans = LLONG_MAX;
+    for(ll i = 1; i <= n; ++i){
+        if((m + i - 1) / i <= n) ans = min(ans, ((m + i - 1) / i) * i);
+        if((m + i - 1) / i < i) break;
     }
+    cout << (ans == LLONG_MAX ?  -1 : ans) << endl;
     return 0;
 }

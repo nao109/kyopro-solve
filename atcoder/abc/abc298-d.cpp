@@ -1,33 +1,31 @@
 #include <bits/stdc++.h>
+#include <atcoder/all>
 using namespace std;
+using namespace atcoder;
 using ll = long long;
 #define fi first
 #define se second
-
-ll string_mod(deque<char> &s, ll mod){
-    ll rest = 0;
-    for(int i = 0; i < (int)s.size(); ++i){
-        ll v = s[i] - '0';
-        rest = (rest * 10 + v) % mod;
-    }
-    return rest;
-}
-
+using mint = modint998244353;
 int main(){
-    deque<char> s;
-    s.push_back('1');
     int q;
     cin >> q;
+    deque<int> s;
+    s.push_back(1);
+    mint ans = 1;
     for(int i = 0; i < q; ++i){
         int k;
         cin >> k;
         if(k == 1){
-            char x;
+            int x;
             cin >> x;
+            ans = ans * 10 + x;
             s.push_back(x);
         }
-        else if(k == 2) s.pop_front();
-        else cout << string_mod(s, 998244353) << endl;           
+        else if(k == 2){
+            ans -= mint(10).pow((int)s.size() - 1) * s.front();
+            s.pop_front();
+        }
+        else cout << ans.val() << endl;
     }
     return 0;
 }

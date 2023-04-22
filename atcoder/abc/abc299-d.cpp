@@ -7,7 +7,7 @@ int main(){
     int n;
     cin >> n;
 
-    int ng = -1;
+    int ng = 0;
     int ok = n;
 
     while(abs(ok - ng) > 1){

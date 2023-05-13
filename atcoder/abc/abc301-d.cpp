@@ -5,36 +5,26 @@ using ll = long long;
 #define se second
 int main(){
     string s;
-    int n;
+    ll n;
     cin >> s >> n;
+    int ss = (int)s.size();
 
     ll num = 0;
-    vector<int> q;
-    for(int i = 0; i < (int)s.size(); i++){
-        if(s[i] == '?') q.push_back(i);
-        else if(s[i] == '1') num += (1ll << ((int)s.size() - i - 1));
+    for(int i = 0; i < ss; i++){
+        if(s[i] == '1') num += (1ll << (ss - 1 - i));
     }
-    ll cnt = (int)q.size();
 
     if(num > n){
         cout << "-1\n";
         return 0;
     }
 
-    ll ans = num;
-    for(ll i = 0; i < (1ll << cnt); i++){
-        ll s = num;
-        for(int bit = 0; bit < cnt; bit++){
-            if(i & (1ll << bit)){
-                if((1ll << q[bit]) + num > n) goto end;
-                s += (1ll << q[bit]);
-            }
-            if(s > n) break;
+    for(int i = 0; i < ss; i++){
+        if(s[i] == '?'){
+            if((1ll << (ss - 1 - i)) + num <= n) num += (1ll << (ss - 1 - i));
         }
-        if(s < n) ans = max(ans, s);
     }
 
-end:
-    cout << ans << endl;
+    cout << num << endl;
     return 0;
 }

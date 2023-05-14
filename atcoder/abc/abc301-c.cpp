@@ -7,33 +7,36 @@ int main(){
     string s, t;
     cin >> s >> t;
 
-    map<char, int> scnt, tcnt;
+    map<char, int> ss, ts;
     for(char i : s){
-        if(scnt.count(i)) scnt[i]++;
-        else scnt[i] = 1;
+        if(ss.count(i)) ss[i]++;
+        else ss[i] = 1;
     }
     for(char i : t){
-        if(tcnt.count(i)) tcnt[i]++;
-        else tcnt[i] = 1;
+        if(ts.count(i)) ts[i]++;
+        else ts[i] = 1;
     }
 
-    for(char i : "atcoder"){
-        int m = max(scnt[i], tcnt[i]);
+    string atcoder = "atcoder";
+    for(char i : atcoder){
+        if(ss[i] == ts[i]) continue;
 
-        if(scnt['@'] < m - scnt[i] || tcnt['@'] < m - tcnt[i]){
-            cout << "No\n";
-            return 0;
+        int diff = abs(ts[i] - ss[i]);
+        if(ss[i] < ts[i]){
+            ss['@'] -= diff;
+            ss[i] += diff;
         }
-        scnt['@'] -= m - scnt[i];
-        scnt[i] = m;
-        tcnt['@'] -= m - tcnt[i];
-        tcnt[i] = m;
+        else{
+            ts['@'] -= diff;
+            ts[i] += diff;
+        }
     }
 
     bool flag = true;
     for(char i : s + t){
-        if(scnt[i] != tcnt[i]) flag = false;
+        if(ss[i] != ts[i]) flag = false;
     }
+    flag &= (ss['@'] >= 0 && ts['@'] >= 0);
     cout << (flag ? "Yes\n" : "No\n");
     return 0;
 }

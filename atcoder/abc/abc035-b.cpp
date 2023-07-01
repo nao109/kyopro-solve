@@ -31,10 +31,18 @@ int main(){
                 now.fi = 0;
             }
         }
-
+        
         if(now.se == 0) now.se = cnt % 2;
-        else if(now.se > 0) now.se += (now.se > 0 ? -cnt : cnt);
-        cnt = 0;
+        else{
+            if(cnt < abs(now.se)){
+                now.se += (now.se > 0 ? -cnt : cnt);
+                cnt = 0;
+            }
+            else{
+                cnt -= abs(now.se);
+                now.se = 0;
+            }
+        }
     }
 
     cout << abs(now.fi) + abs(now.se) << endl;

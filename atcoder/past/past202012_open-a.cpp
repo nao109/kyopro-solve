@@ -6,9 +6,13 @@ using ll = long long;
 int main(){
     string s;
     cin >> s;
-    for(int i = 2; i < 5; ++i){
-        if(s[i] == s[i - 1] && s[i] == s[i - 2]){
-            cout << (s[i] == 'o' ? "o\n" : "x\n");
+    for(int i = 0; i < 3; i++){
+        if(s.substr(i, 3) == "ooo"){
+            cout << "o\n";
+            return 0;
+        }
+        else if(s.substr(i, 3) == "xxx"){
+            cout << "x\n";
             return 0;
         }
     }

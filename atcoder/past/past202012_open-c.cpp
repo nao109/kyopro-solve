@@ -4,16 +4,18 @@ using ll = long long;
 #define fi first
 #define se second
 int main(){
+    string d = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int n;
     cin >> n;
-    string ans = "";
+
     if(n == 0){
-        cout << 0 << endl;
+        cout << "0\n";
         return 0;
     }
+
+    string ans = "";
     while(n > 0){
-        if(n % 36 >= 10) ans.push_back('A' + n % 36 - 10);
-        else ans.push_back('0' + n % 36);
+        ans.push_back(d[n % 36]);
         n /= 36;
     }
     reverse(ans.begin(), ans.end());

@@ -1,30 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define rep(i,n) for(int i=0; i<(n); ++i)
+#define fi first
+#define se second
 int main(){
-  cout << fixed << setprecision(7);
-  int n; cin >> n;
-  vector<pair<int,int>> yx(n);
-  rep(i,n) cin >> yx.at(i).second >> yx.at(i).first;
-  string s; cin >> s;
-  bool ans=false;
-  rep(i,n)rep(j,i){
-    if(i!=j){
-      if(yx[i].first==yx[j].first){
-        if(s[i]=='R'&&s[j]=='L'&&yx[i].second<yx[j].second){
-          ans=true; break;
+    int n;
+    cin >> n;
+    vector<int> x(n), y(n);
+    for(int i = 0; i < n; i++) cin >> x[i] >> y[i];
+    string s;
+    cin >> s;
+
+    map<int, map<int, char>> line;
+    for(int i = 0; i < n; i++) line[y[i]][x[i]] = s[i];
+
+    bool flag = false;
+    for(auto i : line){
+        bool isr = false;
+        for(auto j : i.se){
+            if(j.se == 'R') isr = true;
+            if(isr && j.se == 'L') flag = true;
         }
-        else if(s[i]=='L'&&s[j]=='R'&&yx[i].second>yx[j].second){
-          ans=true; break;
-        }
-        else continue;
-      }
-      else continue;
     }
-    else continue;
-  }
-  if(ans) cout << "Yes\n";
-  else cout << "No\n";
-  return 0;
+
+    cout << (flag ? "Yes\n" : "No\n");
+    return 0;
 }

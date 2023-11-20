@@ -16,13 +16,15 @@ int main(){
     ans += 1;
     cout << ans << endl;
     for(int i = 1; i < n; i++){
-        ans += 1;
-        if(a[i] == st.top().fi){
+        if(st.empty()) st.emplace(a[i], 1);
+        else if(a[i] == st.top().fi){
             int num = st.top().se;
             st.pop();
             st.emplace(a[i], num + 1);
         }
         else st.emplace(a[i], 1);
+
+        ans += 1;
 
         if(st.top().fi == st.top().se){
             ans -= st.top().se;

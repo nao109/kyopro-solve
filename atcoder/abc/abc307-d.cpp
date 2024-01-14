@@ -9,25 +9,21 @@ int main(){
     string s;
     cin >> n >> s;
 
-    string memo = "";
+    string ans = "";
     int height = 0;
+
     for(int i = 0; i < n; i++){
-        if(height == 0){
-            if(s[i] == '('){
-                memo.push_back(s[i]);
-                height++;
-            }
-            else cout << s[i];
+        if(s[i] == ')' && height > 0){
+            while(ans.back() != '(') ans.pop_back();
+            ans.pop_back();
+            height--;
         }
         else{
-            memo.push_back(s[i]);
+            ans.push_back(s[i]);
             if(s[i] == '(') height++;
-            else if(s[i] == ')'){
-                height--;
-                if(height == 0) memo = "";
-            }
         }
     }
-    cout << memo << endl;
+
+    cout << ans << endl;
     return 0;
 }

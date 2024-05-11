@@ -7,7 +7,7 @@ using ll = long long;
 int main(){
     string piano = "";
     for(int i = 0; i < 20; i++) piano += "wbwbwwbwbwbw";
-    
+
     int w, b;
     cin >> w >> b;
     for(int i = 0; i < 240; i++){
@@ -16,7 +16,7 @@ int main(){
             if(piano[j] == 'w') cnt_w++;
             else cnt_b++;
         }
-        if(cnt_w == w &&& cnt_b == b){
+        if(cnt_w == w && cnt_b == b){
             cout << "Yes\n";
             return 0;
         }

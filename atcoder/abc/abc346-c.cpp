@@ -5,17 +5,19 @@ using ll = long long;
 #define se second
 
 int main(){
-    int n, k;
+    ll n, k;
     cin >> n >> k;
-    set<int> a;
+    set<ll> a;
     for(int i = 0; i < n; i++){
-        int x;
+        ll x;
         cin >> x;
         a.insert(x);
     }
 
-    int ans = k * (k + 1) / 2;
-    for(int i : a) ans -= i;
+    ll ans = k * (k + 1) / 2;
+    for(ll i : a){
+        if(i <= k) ans -= i;
+    }
     cout << ans << "\n";
     return 0;
 }
